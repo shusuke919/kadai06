@@ -19,6 +19,7 @@ $naiyou = $_GET["naiyou"];
 // DB接続します（エラー処理追加）コピペして部分的に書き換えて使うと良い！
 try {
   $pdo = new PDO('mysql:dbname=kadai_db;charset=utf8;host=localhost:3306','root','root');
+  // 3306 → ポート番号、最初のroot → ID、最後のroot　→ パスワード
 } catch (PDOException $e) {
   exit('DbConnectError:'.$e->getMessage());
 }
@@ -26,7 +27,7 @@ try {
 // データ登録　SQL作成
 $stmt = "INSERT INTO kadai_an_db(id, name, email, naiyou,
 indate )VALUES(NULL, :a1, :a2, :a3, sysdate())";
-$stmt = $pdo->prepare($sql);
+$stmt = $pdo->prepare($stmt);
 $stmt->bindValue(':a1', $name, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':a2', $email, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':a3', $naiyou, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
@@ -40,7 +41,7 @@ if($status==false){
 
 }else{
   //５．index.phpへリダイレクト
-  header("Location: main.pdp");
+  header("Location: main.php");
   exit;
 
 }

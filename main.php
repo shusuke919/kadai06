@@ -1,18 +1,4 @@
-<?php
 
-
-
-$d = date("s");
-if ($d >=40 ){
-  echo '<p style="background:red;">40秒以上</p>';
-}else if ($d >=20 ){
-  echo '<p style="background:blue;">1秒以上</p>';
-}else{
-  echo '<p style="background:yellow;">20秒以上</p>';
-}
-echo '<p>現在：'.$d.'秒</p>';
-
-?>
 
 
 
@@ -50,7 +36,7 @@ echo '<p>現在：'.$d.'秒</p>';
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="result.php">アンケート結果</a></div>
     </div>
   </nav>
 </header>
@@ -67,3 +53,10 @@ echo '<p>現在：'.$d.'秒</p>';
     </fieldset>
   </div>
 </form>
+
+<!-- <div>
+    <div class="container jumbotron"><?=$view?></div>
+</div> -->
+
+</body>
+</html>
