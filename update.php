@@ -6,7 +6,7 @@
 $name   = $_GET["name"];
 $email  = $_GET["email"];
 $naiyou = $_GET["naiyou"];
-$age    = $_GET["age"];
+$age2    = $_GET["age2"];
 $id    = $_GET["id"];
 
 
@@ -24,7 +24,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name,     PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':email', $email,   PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':naiyou', $naiyou, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':age', $age,       PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':age2', $age2,       PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':id', $id,         PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $status = $stmt->execute();
 

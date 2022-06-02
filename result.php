@@ -6,8 +6,13 @@ try{
   exit('データベースに接続できませんでした。'.$e->getMessage());
 }
 //データ登録SQL作成
-$stmt = $pdo->prepare("SELECT * FROM kadai_an_db");
+// $stmt = $pdo->prepare("SELECT * FROM kadai_an_db");
+
+$stmt = $pdo->prepare("SELECT * FROM kadai_an_db;SELECT COUNT(*) FROM kadai_an_db;");
+
+
 $status = $stmt->execute();
+
 
 //データ表示
 $view="";
@@ -19,10 +24,26 @@ if($status==false) {
 } else {
   //Selectデータの数だけ自動でループしてくれる
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $view .= $result["id"]."-".$result["name"]."</br>";
+    $view .= '<p>';
+    $view .='<a href="view.php?id='.$result["id"].'">';
+    $view .= $result["id"]."-".$result["name"].$result["age2"];
+    $view .='</a>';
+    $view .='　';
+    $view .='<a href="delete.php?id='.$result["id"].'">';
+    $view .='[削除]';
+    $view .='</a>';
+    $view .= '</p>';
   }
+// 2つ目の実行結果に移動
+  $stmt->nextRowset();
+  $count = $stmt->fetch(PDO::FETCH_ASSOC);
 
 }
+// テーブル内のレコード合計表示　
+echo "アンケートに答えてくれた合計人数は";
+echo $count["COUNT(*)"]."人";
+
+
 
 ?>
 

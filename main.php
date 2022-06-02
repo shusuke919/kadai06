@@ -37,6 +37,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
     <div class="navbar-header"><a class="navbar-brand" href="result.php">アンケート結果</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="qu.php">集計</a></div>
     </div>
   </nav>
 </header>
@@ -49,6 +50,25 @@
      <label>名前：<input type="text" name="name"></label><br>
      <label>Email：<input type="text" name="email"></label><br>
      <label><textArea name="naiyou" rows="4" cols="40"></textArea></label><br>
+
+     <tr>
+              
+                <td>年齢</td>
+                <td>
+                    <select name="age2">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="60">60</option>
+                        <option value="70">70</option>
+                    </select>
+                </td>                
+            </tr>
+
+     
+     
      <input type="submit" value="送信">
     </fieldset>
   </div>
