@@ -34,6 +34,9 @@ if($status==false) {
     $view .='</a>';
     $view .= '</p>';
   }
+
+
+  
 // 2つ目の実行結果に移動
   $stmt->nextRowset();
   $count = $stmt->fetch(PDO::FETCH_ASSOC);

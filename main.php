@@ -56,13 +56,13 @@
                 <td>年齢</td>
                 <td>
                     <select name="age2">
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="60">60</option>
-                        <option value="70">70</option>
+                        <option value="1">10代</option>
+                        <option value="2">20代</option>
+                        <option value="3">30代</option>
+                        <option value="4">40代</option>
+                        <option value="5">50代</option>
+                        <option value="6">60代</option>
+                        <option value="7">70代</option>
                     </select>
                 </td>                
             </tr>
