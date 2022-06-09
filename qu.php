@@ -14,14 +14,15 @@ $status = $stmt->execute();
 //https://takablog06.com/php_fetch_for_beginner/
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//jsに入れるための変数を作る
-$a = $result[count(0)];
-
-
-
-
-//正常に作動しているか確かめる
-// var_dump($result)
+//jsに入れるための変数を作　10代〜70代までを作成
+$a = $result[0];
+$b = $result[1];
+$c = $result[2];
+$d = $result[3];
+$e = $result[4];
+$f = $result[5];
+$g = $result[6];
+var_dump($result);
 
 // int=>strに変換するサーバーサイドでenum定義が必要
 $enum = [
@@ -44,7 +45,7 @@ if($status==false) {
 } else {
 
   // foreach文は配列に含まれる各要素の値を順に取り出し処理したい場合に使う
-  $view .= "年齢別ef一覧";
+  $view .= "年齢別dffd一覧";
 
   foreach($result as $v){
   
@@ -56,11 +57,6 @@ if($status==false) {
   }
   
 }
-
-
-
-
-
 
 ?>
 
@@ -76,7 +72,7 @@ if($status==false) {
 
   <div>
     
-    <a value="<?=$enum[(int) $v["age2"]]?>"><?=$view?></a>
+    <a><?=$view?></a>
     <a href="result.php">アンケート結果一覧に戻る</a>
 </div>
 
@@ -85,9 +81,18 @@ if($status==false) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
   <script>
- var  js_test = <?php echo $a; ?>
- 
- 
+// echoの出力対象をjson_encodeでjavascriptのobjectに変換
+// https://qiita.com/cr_tk/items/900914e8a6e19ee3c5b7
+ var  js_a = <?php echo json_encode($a); ?>;
+ var  js_b = <?php echo json_encode($b); ?>;
+ var  js_c = <?php echo json_encode($c); ?>;
+ var  js_d = <?php echo json_encode($d); ?>;
+ var  js_e = <?php echo json_encode($e); ?>;
+ var  js_f = <?php echo json_encode($f); ?>;
+ var  js_g = <?php echo json_encode($g); ?>;
+
+// chart.jsを使用する
+// https://qiita.com/cr_tk/items/900914e8a6e19ee3c5b7
   var ctx = document.getElementById("myPieChart");
   var myPieChart = new Chart(ctx, {
     type: 'pie',
@@ -100,7 +105,15 @@ if($status==false) {
               "#58A27C",
               "#3C00FF"
           ],
-          data: [1, 1, 1, 1,1,1,1]
+          data: [
+            js_a.count,
+            js_b.count,
+            js_c.count,
+            js_d.count,
+            js_e.count,
+            js_f.count,
+            js_g.count,
+                       ]
       }]
     },
     options: {
